@@ -18,23 +18,35 @@ export default function Hero() {
   const classes = useStyles();
   return (
     <Container maxWidth="sm" component="main" className={classes.heroContent}>
+      
+      {/* ✅ LOGO NUEVO AGREGADO */}
+      <img
+        src="/assets/images/logo3devsecops.png"
+        alt="DevSecOps Logo"
+        style={{ width: "120px", height: "120px", marginBottom: "20px" }}
+      />
+
+      {/* ✅ TÍTULO PERSONALIZADO */}
       <Typography
         variant="h5"
         align="center"
         gutterBottom
         className={classes.heroTitle}
       >
-        {"Hat.sh"}
+        {"Hat.sh – DevSecOps Edition"}
       </Typography>
+
       <Typography
         variant="subtitle1"
         align="center"
         component="p"
         className={classes.heroSubTitle}
       >
-        {t('sub_title')}
+        {t("sub_title")}
         <br />
+        <strong>Hardened & Secure</strong>
       </Typography>
     </Container>
   );
 }
+

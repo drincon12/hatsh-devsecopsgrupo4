@@ -39,6 +39,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import { Theme, checkTheme } from "../src/config/Theme";
 import locales from "../locales/locales";
 import { getTranslations as t } from "../locales";
+import DOMPurify from "isomorphic-dompurify";
 const drawerWidth = 240;
 
 marked.setOptions({
@@ -398,7 +399,7 @@ export default function About(props) {
           <Container maxWidth="lg">
             <div className={classes.toolbar} />
 
-            <div dangerouslySetInnerHTML={{ __html: marked(docContent) }}></div>
+            <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(marked(docContent)) }}></div>
             <div
               dangerouslySetInnerHTML={{ __html: marked(props.changelog) }}
             ></div>

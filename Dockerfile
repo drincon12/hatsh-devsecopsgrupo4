@@ -1,22 +1,28 @@
-FROM node:alpine as builder
+#Etapa 1 Build Segura grupo 4
+FROM node:24-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm install --only=production
+COPY . .
+RUN npm run build
+
+# Etapa 2 — Runtime endurecido
+FROM node:24-alpine
+
+# Crear usuario NO ROOT
+RUN addgroup -g 1001 nextjs && \
+    adduser -S -u 1001 -G nextjs appuser
 
 WORKDIR /app
 
-COPY package*.json ./
+# Copiar únicamente lo necesario
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/node_modules ./node_modules
 
-RUN npm install
+USER appuser
 
-COPY . ./
+EXPOSE 3000
 
-ENV NEXT_TELEMETRY_DISABLED 1
-
-RUN npm run build
-
-
-FROM nginx:stable-alpine
-
-COPY --from=builder /app/out /usr/share/nginx/html
-
-EXPOSE 3991
-
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+CMD ["npm", "run", "start"]
