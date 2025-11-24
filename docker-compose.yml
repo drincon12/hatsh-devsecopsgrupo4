@@ -1,12 +1,6 @@
-version: "3"
-
 services:
-  web:
-    image: shdv/hat.sh
-    build:
-      context: ./
-      dockerfile: Dockerfile
+  hatsh:
+    build: .
+    container_name: hatsh-devsecopsgrupo4
     ports:
-      - 3991:80
-    volumes:
-      - ./src:/usr/share/nginx/html/out
+      - "3991:3000"

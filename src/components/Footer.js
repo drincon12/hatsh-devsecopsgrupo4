@@ -79,7 +79,6 @@ const TabPanel = (props) => {
 
   return (
     <div
-      component="div"
       role="tabpanel"
       hidden={value !== index}
       id={`donation-tabpanel-${index}`}
@@ -155,9 +154,10 @@ export default function Footer() {
       <footer className={classes.footer}>
         <Container maxWidth="sm">
           <Typography variant="body1">
-            Built and developed by{" "}
+            Desarrollado por Grupo 4 – Hat.sh DevSecOps Edition{" "}
+            Integrantes: Diana Rincón - Carolina Nieto - Guillermo Medina - Brian Pinzon - Favian Garcia
             <Link
-              href="https://github.com/sh-dv"
+              href="https://github.com/drincon12/hatsh-devsecopsgrupo4.git"
               target="_blank"
               rel="noopener"
               color="inherit"
@@ -165,19 +165,7 @@ export default function Footer() {
               {"sh-dv"}
             </Link>
           </Typography>
-
-          <Chip
-            size="small"
-            className={classes.chip}
-            avatar={
-              <Avatar src={`/assets/icons/${currAvatar}-logo.png`}></Avatar>
-            }
-            label="Donations Accepted"
-            clickable
-            onClick={() => handleClickOpen()}
-            onDelete={() => handleClickOpen()}
-            deleteIcon={<MonetizationOnIcon className={classes.monIcon} />}
-          />
+          
           <Dialog
             scroll="body"
             maxWidth="sm"
