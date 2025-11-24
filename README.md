@@ -16,147 +16,298 @@
 </div>
 
 ---
-
-[Hat.sh](https://hat.sh) is a web app that provides secure local file encryption in the browser. It's fast, secure, and uses modern cryptographic algorithms with chunked AEAD stream encryption/decryption.
-
-V2 of hat.sh introduced memory efficient in-browser large file chunked encryption using streams with libsodium.
-
-## Usage
-
-![how-to-use-gif](https://i.imgur.com/NbAZOgP.gif)
-
-<br>
-
-## Features
-
-### Security
-
-- XChaCha20-Poly1305 - for symmetric encryption.
-- Argon2id - for password-based key derivation.
-- X25519 - for key exchange.
-
-The libsodium library is used for all cryptographic algorithms.
-
-### Privacy
-
-- The app runs locally in your browser.
-- No data is ever collected or sent to anyone.​
-
-### Functionality
-
-- Secure multiple file encryption/decryption with passwords or keys.
-- Secure random password generation.
-- Asymmetric key pair generation.
-- Authenticated key exchange.
-- Password strength estimation.
-
-<br>
-
-## Offline Use
-
-The app can be easily self hosted, please follow the [installation](https://hat.sh/about/#installation) instructions.
-
-<br>
-
-## Browser Compatibility
-
-We officially support the last two versions of every major browser. Specifically, we test on the following
-
-- **Chrome** on Windows, macOS, and Linux , Android
-- **Firefox** on Windows, macOS, and Linux
-- **Safari** on iOS and macOS
-- **Edge** on Windows
-
-Safari and Mobile browsers are limited to single 1GB files, due to lack of support with server-worker fetch api.
-
-<br>
-
-## Official running instances of the app
-
-| #   | URL                                       |
-| --- | ----------------------------------------- |
-| 1   | [hat.sh](https://hat.sh/)                 |
-| 2   | [hat.now.sh](https://hat.now.sh/)         |
-| 2   | [hat.vercel.app](https://hat.vercel.app/) |
-
-<br>
-
-## Donations
-
-The project is maintained in my free time. Donations of any size are appreciated :
-
-<br>
-
-<div>
-
-<strong>Crypto</strong>
-
-  <table>
-    <tr>
-      <th></th>
-      <th>Coin</th>
-      <th>Address</th>
-    </tr>
-    <tr>
-      <td><img src="https://i.imgur.com/utSCHpB.png" /></td>
-      <td>Monero</td>
-      <td style="word-break: break-word">
-        <code
-          >84zQq4Xt7sq8cmGryuvWsXFMDvBvHjWjnMQXZWQQRXjB1TgoZWS9zBdNcYL7CRbQBqcDdxr4RtcvCgApmQcU6SemVXd7RuG</code
-        >
-      </td>
-    </tr>
-    <tr>
-      <td><img src="https://i.imgur.com/imvYFLR.png" /></td>
-      <td>Bitcoin</td>
-      <td><code>bc1qlfnq8nu2k84h3jth7a27khaq0p2l2gvtyl2dv6</code></td>
-    </tr>
-    <tr>
-      <td><img src="https://i.imgur.com/a4vLbjm.png" /></td>
-      <td>Ethereum</td>
-      <td><code>0xF6F204B044CC73Fa90d7A7e4C5EC2947b83b917e</code></td>
-    </tr>
-  </table>
-
-  <br>
+  README.md – Proyecto DevSecOps Grupo 4 (Versión final)
+  PROYECTO "HAT.SH REFORGED"
   
-  <strong>Kofi</strong>
+📘 Introducción
 
-[https://ko-fi.com/shdvapps](https://ko-fi.com/shdvapps)
+Este proyecto corresponde al laboratorio de Ingeniería Reversa y DevSecOps del curso.
 
-<strong>Open Collective</strong>
+El objetivo principal fue:
 
-[https://opencollective.com/hatsh](https://opencollective.com/hatsh)
+Analizar la aplicación original Hat.sh
 
-</div>
+Realizar ingeniería inversa de su estructura interna
 
-<br>
-<br>
+Personalizar la UI/UX (logos, textos, títulos, footer)
 
-## Social
+Eliminar referencias originales y reemplazarlas por el branding del Grupo 4
 
-- [Reddit](https://reddit.com/r/hatsh)
+Construir y ejecutar la aplicación de forma local
 
-<br>
+Crear una imagen Docker personalizada
 
-## Acknowledgements
+Ejecutar análisis de seguridad con Docker Scout
 
-- Everyone who supported the project.
-- [Samuel-lucas6](https://github.com/samuel-lucas6) from the [Kryptor](https://github.com/samuel-lucas6/Kryptor) project for being helpful and doing a lot of beta testing.
-- [stophecom](https://github.com/stophecom) from the [Scrt.link](https://scrt.link/) project for translating to German.
-- [bbouille](https://github.com/bbouille) for translating to French.
-- [qaqland](https://github.com/qaqland) for translating to Chinese.
-- [Ser-Bul](https://github.com/Ser-Bul) for translating to Russian.
-- [matteotardito](https://github.com/matteotardito) for translating to Italian.
-- [t0mzSK](https://github.com/t0mzSK) for translating to Slovak.
-- [Xurdejl](https://github.com/Xurdejl) for translating to Spanish.
-- [Franatrtur](https://github.com/Franatrtur) for translating to Czech.
-- [darkao](https://github.com/darkao) for translating to Turkish.
-- [Frank7sun](https://github.com/Frank7sun) for translating to Japanese.
+Documentar vulnerabilidades y indicar como aplicar mitigaciones posibles
 
-<br>
+El resultado final es HatDotSh – DevSecOps Group 4, una edición reforzada, segura y personalizada, completamente funcional y empaquetada en Docker.
 
-## Credits
+1. 🔍 Ingeniería Reversa y Análisis de la Aplicación Original
+
+Se clonó el repositorio original del profesor y se revisó la estructura del proyecto para identificar los puntos clave de personalización y seguridad.
+
+Repositorio original del curso:
+https://github.com/jaiderospina/DEVSECOPS_2025_2/tree/main/LAB_ING_REVERSA
+
+Repositorio original de Hat.sh (sh-dv):
+https://github.com/sh-dv/hat.sh
+
+1.1 🧩 Tecnologías Identificadas
+Frontend
+
+Next.js 12.x (versión antigua, usada por Hat.sh)
+
+React 17
+
+Material UI (MUI v4)
+
+Criptografía
+
+libsodium-wrappers
+Utilizada para cifrado simétrico y asimétrico del lado del cliente (client-side).
+
+Librerías Utilizadas
+
+react-dropzone
+
+prismjs
+
+marked
+
+js-yaml
+
+postcss
+
+glob
+
+zxcvbn
+
+Service Worker
+
+Construido con browserify
+
+Permite operar 100% offline
+
+Build Tools
+
+Next build + Next export
+
+Post-build.js
+
+Dockerfile multi-stage
+
+1.2 📁 Estructura del Proyecto Analizado
+<img width="1610" height="860" alt="image" src="https://github.com/user-attachments/assets/7a699e60-28a4-4a86-a38a-b0cafe3d3b0e" />
+
+
+1.3 🎨 Localización y Modificación del Branding
+
+Se identificaron los archivos que contenían los nombres, logos y textos originales.
+
+✔ Logo principal (sombrero)
+public/assets/images/logo.png
+
+✔ Logo DevSecOps Grupo 4 (añadido)
+public/assets/images/devsecops-logo.png
+
+✔ Modificación del Hero (Pantalla principal)
+
+Archivo:
+
+src/components/Hero.js
+
+
+Cambios realizados:
+
+Inserción del logo del sombrero
+
+Inserción del logo DevSecOps
+
+Centrado y alineación
+
+Cambio de título a:
+"HatDotSh – DevSecOps Group 4"
+
+✔ Modificación del Footer
+
+Archivo:
+
+src/components/Footer.js
+
+
+Se reemplazó:
+
+❌ “Built and developed by sh-dv”
+✔ “Desarrollado por Grupo 4 – Hat.sh DevSecOps Edition Integrantes:”
+
+Integrantes agregados:
+
+Diana Rincón
+
+Carolina Nieto
+
+Guillermo Medina
+
+Brian Pinzón
+
+Favián Garcias
+
+Se eliminó:
+
+Botón de donaciones
+
+Logos de criptomonedas
+
+Texto invitando a donar
+
+Enlace al repo oficial
+
+2. 🐳 Construcción y Ejecución con Docker
+   
+2.1 Construcción de la imagen personalizada
+docker build -t hatsh-devsecopsgrupo4-hatsh .
+
+2.2 Ejecución del contenedor
+docker run -d --name hatsh-devsecops -p 3991:3991 hatsh-devsecopsgrupo4-hatsh:latest
+o utilizando el comando npm run dev cada que se realizaban modificaciones.
+
+
+Acceso:
+
+👉 http://localhost:3991
+
+3. 🔐 Análisis de Vulnerabilidades con Docker Scout
+
+Se realizó un escaneo completo de la imagen Docker generada.
+
+3.1 Comandos utilizados
+docker scout quickview hatsh-devsecopsgrupo4-hatsh:latest
+docker scout cves hatsh-devsecopsgrupo4-hatsh:latest
+docker scout recommendations hatsh-devsecopsgrupo4-hatsh:latest
+
+3.2 Resultados del análisis
+Severidad	Cantidad
+🟥 Critical	0
+🟧 High	3
+🟨 Medium	8
+🟩 Low	4
+Paquetes vulnerables detectados:
+
+next@12.3.7
+
+glob@11.0.3
+
+glob@10.4.5
+
+js-yaml@4.1.0
+
+postcss@8.4.14
+
+@babel/runtime@7.15.4
+
+tar@7.5.1
+
+busybox 1.37.0-r19 (imagen Alpine)
+
+Principales CVEs identificadas:
+
+Improper Authorization (Next.js)
+
+Server-Side Request Forgery – SSRF
+
+Race condition (Next.js / tar)
+
+Prototype Pollution (js-yaml)
+
+OS Command Injection (glob)
+
+Busybox outdated (Alpine)
+
+3.3 Conclusiones del análisis
+
+No existen vulnerabilidades críticas, lo cual es un buen indicador.
+
+La mayoría de problemas provienen de la antigüedad de Next.js 12.x, que no puede actualizarse fácilmente sin romper la app.
+
+Varias vulnerabilidades pueden corregirse actualizando librerías (js-yaml, postcss, babel/runtime).
+
+Docker Scout recomienda actualizar la imagen base a:
+
+FROM node:25-alpine
+
+4. 🎨 Personalización Final (Branding del Grupo 4)
+
+Cambios principales:
+
+Elemento	Archivo	Estado
+Logo principal	public/assets/images/logo.png	✔ Reemplazado
+Logo DevSecOps	public/assets/images/devsecops-logo.png	✔ Añadido
+Título principal	Hero.js	✔ Modificado
+Footer	Footer.js	✔ Créditos del Grupo 4
+Eliminación donaciones	Footer.js	✔ Eliminado
+Enlaces GitHub originales	AppBar.js	✔ Removidos
+Mensaje snackbar donaciones	locales/*	✔ Eliminado
+
+5. 🧪 Evidencia Final
+
+Inserta aquí la captura final de tu app:
+<img width="1311" height="948" alt="image" src="https://github.com/user-attachments/assets/8c43cc1b-7e94-49bc-9877-6f0322bb097a" />
+<img width="1024" height="909" alt="image" src="https://github.com/user-attachments/assets/8c669d0b-1174-4be2-b60c-56ad7267a5ae" />
+<img width="1001" height="957" alt="image" src="https://github.com/user-attachments/assets/daba82e9-7123-440b-b66f-f02339399182" />
+<img width="984" height="981" alt="image" src="https://github.com/user-attachments/assets/4cf525d6-8c06-4cf3-bf52-d32b1d81d78c" />
+<img width="1120" height="703" alt="image" src="https://github.com/user-attachments/assets/675875e2-fbc5-4f06-a857-cfd987571853" />
+<img width="1004" height="597" alt="image" src="https://github.com/user-attachments/assets/64b86b07-42e1-48b4-b8e9-4382e868aef4" />
+
+![HatDotSh Screenshot](./public/assets/images/final-app.png)
+
+6. 🧠 Conclusiones del Proyecto
+
+Este laboratorio permitió aplicar conceptos esenciales de DevSecOps:
+
+✔ Ingeniería Inversa:
+Comprensión profunda del funcionamiento interno de una aplicación web basada en Next.js.
+
+✔ Hardening & Seguridad:
+Análisis y mitigación de vulnerabilidades con Docker Scout.
+
+✔ Personalización:
+Modificación profesional del branding, UI y textos.
+
+✔ Contenedorización:
+Construcción de imagen multistage y despliegue en Docker.
+
+✔ Ciclo DevSecOps completo:
+Clonado → Análisis → Modificación → Build → Escaneo → Ejecución.
+
+El resultado final es una versión mejorada, segura y totalmente personalizada de Hat.sh como entrega del Grupo 4.
+
+7. 👥 Créditos – Grupo 4
+
+HatDotSh – DevSecOps Edition
+
+Integrantes:
+
+Diana Rincón
+
+Carolina Nieto
+
+Guillermo Medina
+
+Brian Pinzón
+
+Favián Garciash
+
+8. 📎 Enlaces del Proyecto
+
+Repositorio Grupo 4:
+
+👉 https://github.com/drincon12/hatsh-devsecopsgrupo4 
+
+👉https://hub.docker.com/repository/docker/drincon12/hatsh-devsecops/general
+
+
+## Credits originales
 
 [libsodium.js](https://github.com/jedisct1/libsodium.js)
 
@@ -165,9 +316,6 @@ The project is maintained in my free time. Donations of any size are appreciated
 [material-ui](https://material-ui.com/)
 
 <br>
-#Grupo 4
-https://github.com/drincon12/hatsh-devsecopsgrupo4/blob/main/README.md
-https://hub.docker.com/repository/docker/drincon12/hatsh-devsecops/general
 
 ## License
 
